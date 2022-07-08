@@ -72,7 +72,7 @@ class _TwitterAppState extends State<TwitterApp> {
                 );
                 print(apiResponse.body);
               },
-              child: Text('認証'),
+              child: Text('認証2'),
             ),
           ]
         ),
