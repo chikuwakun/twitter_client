@@ -12,7 +12,7 @@ class Twitter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<Credential>(create: (context) => Credential(),
+    return ChangeNotifierProvider<Credential>(create: (ctx) => Credential(),
       child: loginCheck()
     );
   }

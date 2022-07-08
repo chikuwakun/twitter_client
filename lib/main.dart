@@ -5,12 +5,13 @@ import 'package:intl/intl.dart';
 
 import './widgets/timerwidget.dart';
 import './widgets/loginCheck.dart';
+import './widgets/twitter.dart';
 
 void main() {
   runApp(MaterialApp(home: TimerTwitter(),
     routes: <String ,WidgetBuilder>{
       '/timer': (BuildContext context) => TimerTwitter(),
-      '/twitter': (BuildContext context) => loginCheck(),
+      '/twitter': (BuildContext context) => Twitter(),
     },
   ));
 }

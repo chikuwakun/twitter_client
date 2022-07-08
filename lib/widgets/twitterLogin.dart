@@ -47,7 +47,7 @@ class _twitterLoginState extends State<twitterLogin> {
     });
   }
 
-  void getCredentials(context) async{
+  void getCredentials(credential) async{
     print('getCredentials');
     // 入力されたPINを元に Access Token を取得
     final pin = controller.text;
@@ -62,12 +62,13 @@ class _twitterLoginState extends State<twitterLogin> {
       clientCredentials,
       res.credentials,
     );
-    context.read<Credential>().setUserClient(client);
+    credential.setUserClient(client);
   }
 
 
   @override
   Widget build(BuildContext context) {
+    final credential = Provider.of<Credential>(context);
     return Scaffold(
       body: Column(
         children:[TextFormField(
@@ -75,7 +76,7 @@ class _twitterLoginState extends State<twitterLogin> {
         ),
           ElevatedButton(
             onPressed: () =>{
-              getCredentials(context)
+              getCredentials(credential)
             },
             child: Text('認証'),
           )

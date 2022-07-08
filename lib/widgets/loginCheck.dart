@@ -10,6 +10,7 @@ class loginCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider.of<Credential>(context).login ? TwitterApp() : twitterLogin();
+    final credential = Provider.of<Credential>(context);
+    return credential.login ? TwitterApp() : twitterLogin();
   }
 }

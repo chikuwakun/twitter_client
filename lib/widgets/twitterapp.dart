@@ -21,13 +21,14 @@ class TwitterApp extends StatefulWidget {
 
 class _TwitterAppState extends State<TwitterApp> {
   static final _dateFormatter = DateFormat('E MMM dd HH:mm:ss yyyy');
-  Future<List<Tweet>> getTimeline() async {
+
+  Future<List<Tweet>> getTimeline(credential) async {
     print("getTimeline");
 
-    final client = context.read<Credential>().userclient;
+    final client = credential.userclient;
     final apiResponse = await client.get(
       Uri.parse(
-          'https://api.twitter.com/1.1/statuses/home_timeline.json?count=20'),
+          'https://api.twitter.com/1.1/statuses/home_timeline.json?count=50'),
     );
     var _timelines = <Tweet>[];
     //model 作成部分
@@ -53,6 +54,7 @@ class _TwitterAppState extends State<TwitterApp> {
 
   @override
   Widget build(BuildContext context) {
+    final credential = Provider.of<Credential>(context);
     return Scaffold(
       appBar: AppBar(
         title: Text('Twitter'),
@@ -60,7 +62,7 @@ class _TwitterAppState extends State<TwitterApp> {
       body: Center(
         child:
             FutureBuilder(
-              future: getTimeline(),
+              future: getTimeline(credential),
               builder: (context, AsyncSnapshot<List<Tweet>> snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
