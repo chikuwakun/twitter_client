@@ -11,8 +11,13 @@ class TwitterApp extends StatefulWidget {
 class _TwitterAppState extends State<TwitterApp> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('twitterApp'),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Twitter'),
+      ),
+      body: Center(
+        child: Text('Twitter'),
+      ),
     );
   }
 }
