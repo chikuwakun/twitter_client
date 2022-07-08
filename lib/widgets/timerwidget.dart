@@ -41,7 +41,7 @@ class _TimerwidgetState extends State<Timerwidget> {
               timerRunning = false;
             });
 
-            Navigator.of(context).pushNamed(widget.service);
+            Navigator.of(context).pushReplacementNamed(widget.service);
             //移動先のサービスをプッシュする。
           }
           })

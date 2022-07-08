@@ -71,6 +71,7 @@ class _twitterLoginState extends State<twitterLogin> {
     final credential = Provider.of<Credential>(context);
     return Scaffold(
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children:[TextFormField(
             controller:controller
         ),

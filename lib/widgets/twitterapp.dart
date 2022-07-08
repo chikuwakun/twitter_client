@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:oauth1/oauth1.dart' as oauth1;
@@ -21,6 +22,31 @@ class TwitterApp extends StatefulWidget {
 
 class _TwitterAppState extends State<TwitterApp> {
   static final _dateFormatter = DateFormat('E MMM dd HH:mm:ss yyyy');
+
+  late Timer _timer;
+  late DateTime _time;
+
+
+  @override
+  void initState(){
+    _time = DateTime.utc(0,0,0,0,0,10);
+    _startTimer();
+    super.initState(); //ちゃんと継承している
+  }
+  void _startTimer() {
+    {
+      _timer = Timer.periodic(Duration(seconds: 10),
+              (Timer timer) => setState((){_time = _time.subtract(Duration(seconds: 10));
+          if(_time.isAtSameMomentAs(DateTime.utc(0,0,0,0,0,0))){
+            _timer.cancel();
+
+            Navigator.of(context).pushReplacementNamed('/timer');
+            //移動先のサービスをプッシュする。
+          }
+          })
+      );
+    }
+  }
 
   Future<List<Tweet>> getTimeline(credential) async {
     print("getTimeline");
@@ -57,7 +83,7 @@ class _TwitterAppState extends State<TwitterApp> {
     final credential = Provider.of<Credential>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Twitter'),
+        title: Text(DateFormat.ms().format(_time)),
       ),
       body: Center(
         child:
