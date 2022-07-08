@@ -22,7 +22,7 @@ class _TimerwidgetState extends State<Timerwidget> {
 
   @override
   void initState(){
-    _time = DateTime.utc(0,0,0,0,1,0);
+    _time = DateTime.utc(0,0,0,0,0,1);
     super.initState(); //ちゃんと継承している
   }
 
