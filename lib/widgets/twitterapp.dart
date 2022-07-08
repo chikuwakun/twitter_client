@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TwitterApp extends StatefulWidget {
   const TwitterApp({Key? key}) : super(key: key);
 
