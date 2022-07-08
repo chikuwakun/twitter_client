@@ -4,6 +4,8 @@ import '../credentials.dart' as credentials;
 import 'package:url_launcher/url_launcher.dart';
 
 
+
+
 class TwitterApp extends StatefulWidget {
   const TwitterApp({Key? key}) : super(key: key);
 
@@ -70,7 +72,7 @@ class _TwitterAppState extends State<TwitterApp> {
                 );
                 print(apiResponse.body);
               },
-              child: Text('OK'),
+              child: Text('認証'),
             ),
           ]
         ),
