@@ -4,13 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 import './widgets/timerwidget.dart';
-import './widgets/twitterapp.dart';
+import './widgets/loginCheck.dart';
+import './widgets/twitter.dart';
 
 void main() {
   runApp(MaterialApp(home: TimerTwitter(),
     routes: <String ,WidgetBuilder>{
       '/timer': (BuildContext context) => TimerTwitter(),
-      '/twitter': (BuildContext context) => TwitterApp(),
+      '/twitter': (BuildContext context) => Twitter(),
     },
   ));
 }

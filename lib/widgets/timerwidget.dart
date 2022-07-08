@@ -22,7 +22,7 @@ class _TimerwidgetState extends State<Timerwidget> {
 
   @override
   void initState(){
-    _time = DateTime.utc(0,0,0,0,1,0);
+    _time = DateTime.utc(0,0,0,0,0,1);
     super.initState(); //ちゃんと継承している
   }
 
@@ -41,7 +41,7 @@ class _TimerwidgetState extends State<Timerwidget> {
               timerRunning = false;
             });
 
-            Navigator.of(context).pushNamed(widget.service);
+            Navigator.of(context).pushReplacementNamed(widget.service);
             //移動先のサービスをプッシュする。
           }
           })
